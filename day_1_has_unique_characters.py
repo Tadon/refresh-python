@@ -1,10 +1,10 @@
 #Write a function has_unique_characters(s) that returns True if the string s has all unique characters (no repeats), and False otherwise.#
 
 def has_unique_characters(string):
-    character_checker = []
+    character_checker = set()
     for character in string:
         if character not in character_checker:
-            character_checker.append(character)
+            character_checker.add(character)
         else:
             return False
     return True
