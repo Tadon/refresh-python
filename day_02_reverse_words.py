@@ -10,6 +10,8 @@
         No need to handle extra spaces or punctuation for now—keep it simple.
 '''
 
+''' First version
+
 def reverse_words(s):
     s += ' '                                 #adding space at the end of string to make it easier to add word at end of sentence, because i use an empty space to trigger adding a word to a word list
     word_list = []                           #converting a string to a list of words, so i can use the built in reversed function to rebuild the sentence later in the logic
@@ -27,8 +29,23 @@ def reverse_words(s):
         if i != word_list[0]:                #basically checking to see if the current word is == to the first word in the original sentence, so i dont add an unnecessary space to the end of a sentence
             reversed_sentence += " "         #adding a space between words that aren't the final words in a sentence
     return reversed_sentence                 #returning the reversed string, as per the question requests
-       
-        
+ '''
+
+
+'''More effecient version
+def reverse_words(s):
+    string_of_words = s.split()                         #splitting string into array of words
+    reverse_string_array = []                           #initializing empty string im gonna populate reverse string with
+    for i in reversed(string_of_words):                 #iterating through reversed version of string
+        reverse_string_array.append(i)                  #creating reversed array of words
+
+    reverse_string = " ".join(reverse_string_array)     #joining each of the words in the reversed array with a space bar to create the reversed sentence
+
+    return reverse_string                               #returning reversed sentence
+'''
+#More pythonic version
+def reverse_words(s):
+    return " ".join(reversed(s.split()))          #pythonic version of function to do everything in one line
     
 
 print(reverse_words("hello world"))        # world hello
