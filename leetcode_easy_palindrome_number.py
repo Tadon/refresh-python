@@ -29,5 +29,16 @@ Converting to string method:
 class Solution(object):
     def isPalindrome(self, x):
         return str(x) == str(x)[::-1]
-        
+
 '''
+
+#optimized version
+class Solution(object):
+    def isPalindrome(self, x):
+        back_half = 0
+        if x < 0 or (x % 10 == 0 and x != 0):
+            return False
+        while x > back_half:
+            back_half = back_half * 10 + (x % 10)
+            x = x // 10
+        return x == back_half or x == back_half // 10
